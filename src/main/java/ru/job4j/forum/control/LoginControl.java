@@ -10,7 +10,7 @@ import ru.job4j.forum.service.UserService;
 public class LoginControl {
 
     @Autowired
-    UserService users;
+    private UserService users;
 
     @GetMapping("/login")
     protected String doGet() {
