@@ -3,10 +3,10 @@ package ru.job4j.forum.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 import ru.job4j.forum.model.User;
 import ru.job4j.forum.service.UserService;
 
@@ -14,21 +14,20 @@ import ru.job4j.forum.service.UserService;
 public class RegControl {
 
     @Autowired
-    UserService users;
+    private UserService users;
 
     @GetMapping("/reg")
-    protected String doGet() {
+    protected String doGet(Model model) {
+        model.addAttribute("user", new User());
         return "reg";
     }
 
     @PostMapping("/reg")
-    protected ModelAndView doPost(@ModelAttribute User user) {
-        if (users.findByName(user.getUsername()).isEmpty()) {
-            users.save(user);
-            return new ModelAndView("login");
-        } else {
-            return new ModelAndView("reg")
-                    .addObject("errorMessage", "This username already exists");
+    protected String doPost(@ModelAttribute User user, Model model) {
+        if (!users.save(user)) {
+            model.addAttribute("errorMessage", "This username already exists");
+            return "reg";
         }
+        return "redirect:/";
     }
 }

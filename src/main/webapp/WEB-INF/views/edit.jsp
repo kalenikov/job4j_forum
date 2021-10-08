@@ -27,17 +27,17 @@
                 </c:choose>
             </div>
             <div class="card-body">
-                <form action="<c:url value='/save'/>" method="POST" enctype="multipart/form-data">
+                <form action="<c:url value='/post'/>" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="${post.id}">
 
                     <div class="form-group row">
-                        <label class="col-form-label col-sm-3" for="name">Description</label>
+                        <label class="col-form-label col-sm-3" for="name">Name</label>
                         <input type="text" class="form-control col-sm-3" name="name" id="name"
                                value="${post.name}" placeholder="Input post name">
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label col-sm-3" for="text">Description</label>
+                        <label class="col-form-label col-sm-3" for="text">Text</label>
                         <input type="text" class="form-control col-sm-3" name="description" id="text"
                                value="${post.text}" placeholder="Input post text">
                     </div>

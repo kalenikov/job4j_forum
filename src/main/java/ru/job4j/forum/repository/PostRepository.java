@@ -1,15 +1,7 @@
 package ru.job4j.forum.repository;
 
-
+import org.springframework.data.repository.CrudRepository;
 import ru.job4j.forum.model.Post;
 
-import java.util.List;
-
-public interface PostRepository {
-    List<Post> findAll();
-
-    Post save(Post post);
-
-    Post findById(int id);
-
+public interface PostRepository extends CrudRepository<Post, Integer> {
 }

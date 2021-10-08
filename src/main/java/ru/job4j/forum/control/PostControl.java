@@ -18,7 +18,7 @@ public class PostControl {
     @GetMapping("/post")
     public String doGet(Model model, @RequestParam Optional<Integer> id) {
         if (id.isPresent()) {
-            model.addAttribute("post", posts.findById(id.get()));
+            model.addAttribute("post", posts.findById(id.get()).get());
             return "post";
         } else {
             model.addAttribute("post", new Post());

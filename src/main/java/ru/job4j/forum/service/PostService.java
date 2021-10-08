@@ -3,7 +3,7 @@ package ru.job4j.forum.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Post;
-import ru.job4j.forum.repository.jpa.PostRepository;
+import ru.job4j.forum.repository.PostRepository;
 
 import java.util.List;
 import java.util.Optional;
