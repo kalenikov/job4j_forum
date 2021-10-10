@@ -3,6 +3,7 @@ package ru.job4j.forum.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,6 +26,7 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Role role;
 
     @Override
