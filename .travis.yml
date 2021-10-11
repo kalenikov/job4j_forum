@@ -1,12 +1,14 @@
 language: java
-jdk:
- - openjdk14
-
 sudo: false
-
+install: true
+script: mvn clean package -DskipTests=true
 notifications:
   email:
-    recipients:
-      - sergeykalenikov@gmail.com
-    on_success: never # default: change
-    on_failure: always # default: always
+    recipients: "-sergeykalenikov@gmail.com"
+    on_success: never
+    on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: j7/8o/USCXuLvCEpDmtqm4kIHgjslHgaTIcm7UM9Es0DE+av9U1N7BS9+EQ91RpVMFPsxmoIavdz3ngNTpFHXvsbo8pHnyv4p903zhWrugAErh4E68zkrkbDXGGilkAtJ+8Um7SGuNn1JM8LMt2WkENul3z9wWeonoAhsZpjTJvAqCkYuKwBFK+H1Ob5kAA9diSzK77ofnSCtcdxVevQJ5ixbg5biO4HZh0u5vTPnPHkdR9fjlgDosxmlpNBPTn6Sbu1bDNcKcyeAutr85VNn9aQD9OJxlC5AcLmakuObt9pPn7ABPHw/wadTwSD+b63uG9eVTBSyLRRteMEVLhmSdH5w4e9iJcEPi03QfGaMn/n6f1Ora+j6wezNCnEgqmI/0AheEV4daaVu4ebuXJ34dQFPc4BYA3wf19U1HSvNtiI5S1wcOMhJ188zEo/KNHSVOJ5MW7xw4NPcIu4ZPznv5rASLlOnISSCm6Sbf99NFtCVAddv/MK8LYwlEkpaJ+TIDTDtswvI2f3Td/tiqgphIpMQqhiTg3+VBJwNNd2BKeuS6yKatcDBLOeS/mkqAJp3eKS0esGoqNOHpLsifhLAF1fCj9id2s2STdcpWHmQ4HTp9kmeGXXFz4LpjGvQUCf3rirL71Pitfc8BQvny9UlbxkHbE1L9kauC8pSYCF+gc=
+  app: kalenkov-job4j-forum
