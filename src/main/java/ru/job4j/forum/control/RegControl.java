@@ -28,6 +28,6 @@ public class RegControl {
             model.addAttribute("errorMessage", "This username already exists");
             return "reg";
         }
-        return "redirect:/";
+        return "redirect:/login?reg=true";
     }
 }

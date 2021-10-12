@@ -21,6 +21,9 @@
         <c:if test="${not empty param.logout}">
             <div class="alert alert-danger" role="alert">You have been logged out</div>
         </c:if>
+        <c:if test="${not empty param.reg}">
+            <div class="alert alert-success" role="alert">You have been successfully register</div>
+        </c:if>
         <p>
             <label for="username" class="sr-only">Username</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required

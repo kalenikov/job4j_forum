@@ -26,7 +26,7 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Role role;
 
     @Override
