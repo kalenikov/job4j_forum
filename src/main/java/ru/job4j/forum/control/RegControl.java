@@ -1,7 +1,6 @@
 package ru.job4j.forum.control;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,11 @@ import ru.job4j.forum.service.UserService;
 @Controller
 public class RegControl {
 
-    @Autowired
-    private UserService users;
+    private final UserService users;
+
+    public RegControl(UserService users) {
+        this.users = users;
+    }
 
     @GetMapping("/reg")
     protected String doGet(Model model) {
